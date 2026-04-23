@@ -25,7 +25,7 @@ export const organizationSchema = {
   },
   sameAs: [
     "https://www.instagram.com/northpeaktechnologies",
-    "https://www.linkedin.com/company/northpeaktechnologies",
+    "https://www.linkedin.com/company/northpeaks-teachnologies",
   ],
 };
 

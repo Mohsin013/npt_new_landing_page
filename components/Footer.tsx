@@ -119,7 +119,7 @@ export default function Footer() {
               Instagram
             </a>
             <a
-              href="https://www.linkedin.com/company/northpeaktechnologies"
+              href="https://www.linkedin.com/company/northpeaks-teachnologies"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
