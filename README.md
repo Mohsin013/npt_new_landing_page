@@ -1,36 +1,125 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NorthPeak Technologies - Landing Page
+
+Production-ready website for NorthPeak Technologies, a startup studio providing MVP development, AI solutions, and cloud infrastructure for non-technical founders.
+
+## Tech Stack
+
+- **Framework:** Next.js 16.2 (App Router) + React 19 + TypeScript 5
+- **Styling:** Tailwind CSS 4 with custom design system (dark mode, HSL tokens)
+- **3D/Animation:** Three.js + React Three Fiber (hero & CTA scenes), Framer Motion (UI transitions)
+- **UI Components:** Radix UI primitives, class-variance-authority, shadcn/ui pattern
+- **Icons:** Lucide React
+- **Notifications:** Sonner
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- pnpm (recommended)
+
+### Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Learn More
+### Production Build
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm build
+pnpm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Linting
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+pnpm lint
+```
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+app/
+  layout.tsx            # Root layout (Inter font, metadata, providers, nav, footer)
+  page.tsx              # Home page (12 sections)
+  globals.css           # Design system (colors, gradients, glass, animations)
+  about/                # About page
+  services/             # Services page
+  contact/              # Contact page with form
+  blog/                 # Blog listing
+  blog/[slug]/          # Dynamic blog post
+  api/contact/          # Contact form API endpoint
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+components/
+  ui/                   # Reusable UI primitives (Button, Card, Badge, Input, etc.)
+  three/                # Three.js scenes (HeroScene, CTAScene, Lazy3DScene)
+  Hero.tsx              # Hero with typewriter + 3D background
+  TechMarquee.tsx       # Infinite scroll tech stack
+  AIProminence.tsx      # AI features grid
+  ProblemSolution.tsx   # Challenge cards
+  SolutionSection.tsx   # 5-step process timeline
+  TimelineSection.tsx   # 4-week MVP breakdown
+  Services.tsx          # 10-service grid
+  WhyChooseUs.tsx       # Differentiators
+  Portfolio.tsx         # Project showcase
+  Testimonials.tsx      # Client testimonials
+  FAQSection.tsx        # Collapsible FAQ
+  CTASection.tsx        # Dual-panel CTA with 3D
+  Navbar.tsx            # Fixed navigation with mobile menu
+  Footer.tsx            # Site footer
+  StructuredData.tsx    # JSON-LD schema markup
+
+hooks/
+  useDeviceDetection.ts # Device capability detection
+  useScrollReveal.ts    # Scroll-triggered animations
+
+lib/
+  utils.ts              # cn() class merge utility
+  blog-data.ts          # Blog post content
+```
+
+## Pages
+
+| Route | Description |
+|-------|-------------|
+| `/` | Home (Hero, Tech Stack, AI, Problem/Solution, Process, Timeline, Services, Why Us, Portfolio, Testimonials, FAQ, CTA) |
+| `/about` | Company info and founder profiles |
+| `/services` | Detailed service offerings |
+| `/contact` | Contact form + direct contact info |
+| `/blog` | Blog listing with tag filters |
+| `/blog/[slug]` | Individual blog posts |
+
+## Performance Features
+
+- 3D scenes lazy-loaded with device capability gating (skipped on low-end/2G/reduced motion)
+- Image optimization via AVIF/WebP with Next.js Image
+- Code splitting (Three.js, UI libs, app code in separate chunks)
+- Inter font with `display: swap` and preloading
+- Security headers (HSTS, X-Frame-Options, X-Content-Type-Options)
+
+## Deployment
+
+### Vercel (Recommended)
+
+```bash
+vercel
+```
+
+Or connect the repository to Vercel for automatic deployments.
+
+### Environment Variables
+
+No environment variables are required for the base deployment. For production email handling in the contact form, integrate your preferred email service in `app/api/contact/route.ts`.
+
+## License
+
+All rights reserved. NorthPeak Technologies.
