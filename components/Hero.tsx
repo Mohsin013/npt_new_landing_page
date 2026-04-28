@@ -2,13 +2,19 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MagneticButton } from "@/components/ui/magnetic-button";
 import Lazy3DScene from "@/components/three/Lazy3DScene";
 import FloatingParticles from "@/components/FloatingParticles";
+import dynamic from "next/dynamic";
+
+const FluidSimulation = dynamic(() => import("@/components/FluidSimulation"), {
+  ssr: false,
+  loading: () => <div className="absolute inset-0 gradient-bg opacity-10" />,
+});
 
 const taglines = [
   "Production-Ready MVPs",
@@ -58,8 +64,30 @@ function TypewriterText() {
 }
 
 export default function Hero() {
+  const [showFluid, setShowFluid] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const desktop = window.innerWidth >= 1024;
+    setIsDesktop(desktop);
+    setShowFluid(desktop);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      <AnimatePresence>
+        {showFluid && isDesktop && (
+          <motion.div
+            className="absolute inset-0 z-[1]"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+          >
+            <FluidSimulation onComplete={() => setShowFluid(false)} />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <Lazy3DScene scene="hero" />
       <FloatingParticles count={15} />
       <div className="absolute inset-0 grid-bg opacity-30" />
