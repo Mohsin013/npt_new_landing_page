@@ -13,18 +13,20 @@ const founders = [
     role: "Software Engineer & Co-Founder",
     focus: "Full-Stack & AI Systems",
     photo: "/assets/mohsin.jpeg",
+    linkedin: "https://linkedin.com/in/mohsin-iqbal-424336237",
     description:
       "5+ years architecting production-grade systems that scale. Built AI-powered proctoring with real-time facial recognition for 1,000+ concurrent users, multi-AI adaptive learning platforms integrating Claude, Gemini, and OpenAI, and high-throughput data pipelines processing thousands of jobs daily. Obsessed with clean architecture and shipping fast.",
-    skills: ["React", "Node.js", "AWS", "Python", "OpenAI", "PostgreSQL", "Redis"],
+    skills: ["React / Next.js", "Node.js / Express", "TypeScript", "DBMS", "AI Integration (LLMs)", "Real-Time Systems", "Data Pipelines", "AWS"],
   },
   {
     name: "Aamir Farooq",
     role: "Software Engineer & Co-Founder",
     focus: "Full-Stack & AI Systems",
     photo: "/assets/aamir.jpeg",
+    linkedin: "https://linkedin.com/in/amir-bhat",
     description:
       "5+ years building full-stack production systems and AI-powered products. Specializes in end-to-end application architecture, LLM integrations, and scalable cloud infrastructure. Has delivered AI recruitment agents, adaptive learning platforms, and enterprise SaaS products from scratch.",
-    skills: ["Next.js", "TypeScript", "Node.js", "OpenAI", "AWS", "React Native"],
+    skills: ["React / Next.js", "Node.js / Express", "TypeScript", "DBMS", "AI Integration (LLMs)", "Scalable Architecture", "Cloud Infrastructure", "AWS"],
   },
 ];
 
@@ -192,7 +194,7 @@ export default function AboutContent() {
             <motion.div
               key={founder.name}
               variants={itemVariants}
-              className="rounded-xl border border-border bg-card p-8 hover:border-primary/30 transition-all duration-300"
+              className="flex flex-col rounded-xl border border-border bg-card p-8 hover:border-primary/30 transition-all duration-300"
             >
               <div className="flex items-center gap-4 mb-4">
                 <Image
@@ -223,6 +225,29 @@ export default function AboutContent() {
                   </span>
                 ))}
               </div>
+              <a
+                href={founder.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 mt-auto pt-6 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width={18}
+                  height={18}
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                  <rect width="4" height="12" x="2" y="9" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+                Connect on LinkedIn
+              </a>
             </motion.div>
           ))}
         </div>
