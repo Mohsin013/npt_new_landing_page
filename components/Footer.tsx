@@ -110,6 +110,18 @@ export default function Footer() {
             reserved.
           </p>
           <div className="flex items-center gap-4">
+            <Link
+              href="/terms"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Terms &amp; Conditions
+            </Link>
+            <Link
+              href="/privacy"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Privacy Policy
+            </Link>
             <a
               href="https://www.instagram.com/northpeaktechnologies"
               target="_blank"
