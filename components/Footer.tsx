@@ -1,6 +1,6 @@
-import Link from "next/link";
+import { Mail, MessageCircle, Phone } from "lucide-react";
 import Image from "next/image";
-import { Phone, Mail, MessageCircle } from "lucide-react";
+import Link from "next/link";
 
 const companyLinks = [
   { href: "/about", label: "About" },
@@ -31,8 +31,8 @@ export default function Footer() {
               <span className="text-lg font-bold">NorthPeak</span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              The engineering team behind 50+ successful product launches. We ship
-              production-ready software in weeks, not months.
+              The engineering team behind 50+ successful product launches. We
+              ship production-ready software in weeks, not months.
             </p>
           </div>
 
@@ -111,13 +111,13 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-4">
             <Link
-              href="/terms"
+              href="/terms-of-use"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               Terms &amp; Conditions
             </Link>
             <Link
-              href="/privacy"
+              href="/privacy-policy"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               Privacy Policy
