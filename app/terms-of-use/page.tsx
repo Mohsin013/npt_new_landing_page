@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: "Terms and Conditions",
   description:
     "Terms and Conditions for NorthPeak Technologies. Read our terms of service governing the use of our website and services.",
+  alternates: {
+    canonical: "https://northpeaktechnologies.com/terms-of-use",
+  },
 };
 
 export default function TermsPage() {

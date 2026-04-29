@@ -4,7 +4,10 @@ import AboutContent from "./AboutContent";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "NorthPeak Technologies is the engineering team behind 50+ successful product launches. Meet the founders and learn why startups and businesses trust us to build their most critical software.",
+    "Meet the team behind 50+ product launches. Learn why startups and businesses trust NorthPeak to build their most critical software.",
+  alternates: {
+    canonical: "https://northpeaktechnologies.com/about",
+  },
 };
 
 export default function AboutPage() {

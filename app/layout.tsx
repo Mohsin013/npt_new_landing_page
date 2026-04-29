@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s | NorthPeak Technologies",
   },
   description:
-    "NorthPeak is the engineering team behind 50+ successful product launches. MVP development, AI solutions, web & mobile apps, and project rescue — shipped in weeks, not months.",
+    "Engineering team behind 50+ product launches. MVP development, AI solutions, web & mobile apps — shipped in weeks, not months.",
   keywords: [
     "MVP development services",
     "startup MVP",
@@ -69,6 +69,9 @@ export const metadata: Metadata = {
       "The engineering team behind 50+ successful product launches. MVP development, AI, web & mobile — shipped fast.",
     creator: "@northpeaktech",
     images: ["/company_logo.png"],
+  },
+  alternates: {
+    canonical: "https://northpeaktechnologies.com",
   },
   robots: { index: true, follow: true },
   icons: {

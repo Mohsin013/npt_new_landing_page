@@ -7,7 +7,10 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Blog | Practical Advice for Builders & Founders",
   description:
-    "Lessons from 50+ product launches. MVP development strategies, startup playbooks, and practical advice for founders building their first (or next) product.",
+    "Lessons from 50+ product launches. MVP strategies, startup playbooks, and practical advice for founders building their first (or next) product.",
+  alternates: {
+    canonical: "https://northpeaktechnologies.com/blog",
+  },
 };
 
 export default async function BlogPage() {
