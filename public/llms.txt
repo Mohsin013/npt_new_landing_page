@@ -1,0 +1,28 @@
+# NorthPeak Technologies
+
+> Engineering team behind 50+ successful product launches. MVP development, AI solutions, web & mobile apps — shipped in weeks, not months.
+
+NorthPeak Technologies is a technology and product consultancy that helps startups and growing businesses turn ideas into production-ready software. We specialise in modern web development, AI-powered solutions, and cloud infrastructure — working as an embedded partner, not just a vendor.
+
+## Services
+
+- MVP Development: Go from idea to live product in 4 weeks with clean, scalable architecture.
+- AI Integration: LLM-powered features, intelligent agents, and adaptive learning platforms.
+- Web & Mobile Apps: Full-stack React, Next.js, and React Native applications.
+- Project Rescue: Take over stalled or broken projects and get them shipping again.
+- Cloud Infrastructure: AWS architecture, CI/CD pipelines, and scalable backend systems.
+- Real-Time Systems: WebSocket-based features, live dashboards, and concurrent user systems.
+
+## Team
+
+- Mohsin Iqbal, Software Engineer & Co-Founder: 5+ years architecting production-grade systems. Specialises in full-stack development, AI integration, real-time systems, and data pipelines.
+- Aamir Farooq, Software Engineer & Co-Founder: 5+ years building full-stack production systems and AI-powered products. Specialises in end-to-end application architecture, LLM integrations, and scalable cloud infrastructure.
+
+## Links
+
+- Website: https://northpeaktechnologies.com
+- About: https://northpeaktechnologies.com/about
+- Services: https://northpeaktechnologies.com/services
+- Blog: https://northpeaktechnologies.com/blog
+- Contact: https://northpeaktechnologies.com/contact
+- Email: info@northpeaktechnologies.com

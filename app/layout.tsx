@@ -7,8 +7,10 @@ import {
   StructuredData,
   organizationSchema,
   websiteSchema,
+  localBusinessSchema,
 } from "@/components/StructuredData";
 import CursorGlow from "@/components/CursorGlow";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import "./globals.css";
 
 const inter = Inter({
@@ -25,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s | NorthPeak Technologies",
   },
   description:
-    "Engineering team behind 50+ product launches. MVP development, AI solutions, web & mobile apps — shipped in weeks, not months.",
+    "NorthPeak Technologies — MVP development, AI solutions, web & mobile apps. We build and ship production-ready products in 4 weeks.",
   keywords: [
     "MVP development services",
     "startup MVP",
@@ -95,6 +97,8 @@ export default function RootLayout({
       <head>
         <StructuredData data={organizationSchema} />
         <StructuredData data={websiteSchema} />
+        <StructuredData data={localBusinessSchema} />
+        <GoogleAnalytics />
       </head>
       <body className="min-h-full flex flex-col antialiased">
         <Providers>

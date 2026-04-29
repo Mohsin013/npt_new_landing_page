@@ -78,7 +78,7 @@ export default function Services() {
     <SectionWrapper
       id="services"
       badge="Services"
-      title="What We Build"
+      title="MVP Development & Product Engineering Services"
       subtitle="Six core services. Each designed to solve a specific problem and deliver a measurable outcome."
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">

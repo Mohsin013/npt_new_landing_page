@@ -41,7 +41,7 @@ export default function WhyChooseUs() {
   return (
     <SectionWrapper
       badge="Why NorthPeak"
-      title="What Makes Us Different"
+      title="Why Teams Choose NorthPeak"
       subtitle="We've worked with 50+ founders and businesses. Here's why they chose us over agencies, freelancers, and in-house teams."
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -29,6 +29,35 @@ export const organizationSchema = {
   ],
 };
 
+export const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "NorthPeak Technologies",
+  url: "https://northpeaktechnologies.com",
+  logo: "https://northpeaktechnologies.com/company_logo.png",
+  image: "https://northpeaktechnologies.com/company_logo.png",
+  telephone: "+91-7006009596",
+  email: "info@northpeaktechnologies.com",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Srinagar",
+    addressRegion: "Jammu & Kashmir",
+    addressCountry: "IN",
+  },
+  priceRange: "$$",
+  description:
+    "Software development company specialising in MVP development, AI solutions, web & mobile apps. Ship your product in 4 weeks.",
+  sameAs: [
+    "https://www.instagram.com/northpeaktechnologies",
+    "https://www.linkedin.com/company/northpeaks-teachnologies",
+  ],
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.9",
+    reviewCount: "50",
+  },
+};
+
 export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",

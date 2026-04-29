@@ -1,4 +1,4 @@
-import { Mail, MessageCircle, Phone } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -99,6 +99,12 @@ export default function Footer() {
                   <Mail size={14} />
                   info@northpeaktechnologies.com
                 </a>
+              </li>
+              <li>
+                <span className="flex items-start gap-2 text-sm text-muted-foreground">
+                  <MapPin size={14} className="mt-0.5 shrink-0" />
+                  Srinagar, Jammu &amp; Kashmir, India
+                </span>
               </li>
             </ul>
           </div>

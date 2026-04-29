@@ -37,7 +37,7 @@ export default function ProblemSolution() {
   return (
     <SectionWrapper
       badge="The Problem"
-      title="Sound Familiar?"
+      title="Problems We Solve for Startups & Businesses"
       subtitle="These are the exact problems our clients had before they found us."
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
