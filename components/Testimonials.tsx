@@ -69,7 +69,7 @@ export default function Testimonials() {
             <div className="flex items-center gap-3 pt-3 border-t border-border">
               <Image
                 src={t.photo}
-                alt={t.name}
+                alt={`${t.name}, ${t.role} at ${t.company}`}
                 width={36}
                 height={36}
                 className="rounded-full object-cover w-9 h-9"

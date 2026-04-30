@@ -39,6 +39,9 @@ export async function generateMetadata({
       description: post.excerpt,
       images: post.thumbnail ? [post.thumbnail] : undefined,
     },
+    alternates: {
+      canonical: post.link,
+    },
   };
 }
 
@@ -69,9 +72,35 @@ export default async function BlogPostPage({
     },
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://northpeaktechnologies.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: "https://northpeaktechnologies.com/blog",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.title,
+        item: `https://northpeaktechnologies.com/blog/${slug}`,
+      },
+    ],
+  };
+
   return (
     <>
       <StructuredData data={articleSchema} />
+      <StructuredData data={breadcrumbSchema} />
       <BlogPostContent post={post} />
     </>
   );

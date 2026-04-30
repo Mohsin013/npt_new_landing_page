@@ -11,19 +11,26 @@ interface AnimatedCounterProps {
 export function AnimatedCounter({ value, className }: AnimatedCounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const [display, setDisplay] = useState("0");
 
   const numericMatch = value.match(/^([\d.]+)(.*)$/);
   const targetNum = numericMatch ? parseFloat(numericMatch[1]) : 0;
   const suffix = numericMatch ? numericMatch[2] : value;
   const isNumeric = numericMatch !== null;
+  const targetStr = numericMatch ? numericMatch[1] : "0";
+
+  // Initialize with the real value so SSR/crawlers see correct numbers instead of "0"
+  const [display, setDisplay] = useState(targetStr);
+  const hasAnimated = useRef(false);
 
   useEffect(() => {
-    if (!isInView || !isNumeric) return;
+    if (!isInView || !isNumeric || hasAnimated.current) return;
+    hasAnimated.current = true;
 
     const duration = 1500;
     const startTime = performance.now();
     const isFloat = targetNum % 1 !== 0;
+
+    setDisplay(isFloat ? "0.0" : "0");
 
     function tick(now: number) {
       const elapsed = now - startTime;

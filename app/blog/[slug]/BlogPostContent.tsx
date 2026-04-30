@@ -88,7 +88,7 @@ export default function BlogPostContent({ post }: { post: MediumPost }) {
               <div className="flex items-center gap-2.5">
                 <Image
                   src="/assets/company_logo.png"
-                  alt={post.author}
+                  alt={`Author: ${post.author}`}
                   width={32}
                   height={32}
                   className="rounded-full"
