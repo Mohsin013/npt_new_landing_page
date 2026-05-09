@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getPosts } from "@/lib/get-posts";
 import BlogContent from "./BlogContent";
 
-export const revalidate = 600;
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Blog | Practical Advice for Builders & Founders",
