@@ -16,9 +16,15 @@ export interface MediumPost {
 export const MEDIUM_FEED_URL = "https://medium.com/feed/@info_69552";
 export const MEDIUM_PROFILE_URL = "https://medium.com/@info_69552";
 
+function convertMediumImageUrl(url: string): string {
+  const match = url.match(/cdn-images-1\.medium\.com\/max\/\d+\/(.+)/);
+  if (match) return `https://miro.medium.com/v2/resize:fit:1024/${match[1]}`;
+  return url;
+}
+
 function extractImage(html: string): string {
   const match = html.match(/<img[^>]+src="([^"]+)"/);
-  return match?.[1] ?? "";
+  return match?.[1] ? convertMediumImageUrl(match[1]) : "";
 }
 
 function extractExcerpt(html: string): string {

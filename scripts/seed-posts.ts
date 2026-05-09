@@ -27,19 +27,37 @@ function extractAuthor(html: string): string {
   return match?.[1] ?? "NorthPeak Technologies";
 }
 
-function extractBody(html: string): string {
+function extractBodyRaw(html: string): string {
   const match = html.match(/<section data-field="body" class="e-content">([\s\S]*?)<\/section>\s*<footer>/);
   return match?.[1]?.trim() ?? "";
 }
 
+function extractBody(html: string): string {
+  let body = extractBodyRaw(html);
+  // Remove the first title heading (graf--title) to avoid duplication
+  body = body.replace(/<h3[^>]*class="[^"]*graf--title[^"]*"[^>]*>[\s\S]*?<\/h3>/, "");
+  // Remove the first figure (hero image) to avoid duplication
+  body = body.replace(/<figure[^>]*>[\s\S]*?<\/figure>/, "");
+  return body;
+}
+
+function convertMediumImageUrl(url: string): string {
+  // Convert old cdn-images-1.medium.com/max/XXX/ URLs to miro.medium.com/v2/resize:fit:1024/
+  const match = url.match(/cdn-images-1\.medium\.com\/max\/\d+\/(.+)/);
+  if (match) {
+    return `https://miro.medium.com/v2/resize:fit:1024/${match[1]}`;
+  }
+  return url;
+}
+
 function extractImage(html: string): string {
-  const body = extractBody(html);
+  const body = extractBodyRaw(html);
   const match = body.match(/<img[^>]+src="([^"]+)"/);
-  return match?.[1] ?? "";
+  return match?.[1] ? convertMediumImageUrl(match[1]) : "";
 }
 
 function extractExcerpt(html: string): string {
-  const body = extractBody(html);
+  const body = extractBodyRaw(html);
   const text = body
     .replace(/<figure>[\s\S]*?<\/figure>/g, "")
     .replace(/<[^>]+>/g, "")
@@ -50,7 +68,7 @@ function extractExcerpt(html: string): string {
 }
 
 function estimateReadTime(html: string): string {
-  const body = extractBody(html);
+  const body = extractBodyRaw(html);
   const text = body.replace(/<[^>]+>/g, "");
   const words = text.split(/\s+/).length;
   const minutes = Math.max(1, Math.ceil(words / 250));
