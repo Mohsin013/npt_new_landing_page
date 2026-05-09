@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getPosts } from "@/lib/get-posts";
 import BlogContent from "./BlogContent";
 
-export const revalidate = 3600;
+export const revalidate = 600;
 
 export const metadata: Metadata = {
   title: "Blog | Practical Advice for Builders & Founders",

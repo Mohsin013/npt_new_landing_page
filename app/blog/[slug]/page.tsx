@@ -4,7 +4,7 @@ import { getPosts, getPostBySlug } from "@/lib/get-posts";
 import { StructuredData } from "@/components/StructuredData";
 import BlogPostContent from "./BlogPostContent";
 
-export const revalidate = 3600;
+export const revalidate = 600;
 
 export async function generateStaticParams() {
   const posts = await getPosts();

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getPosts } from "@/lib/get-posts";
 
-export const revalidate = 3600;
+export const revalidate = 600;
 
 export async function GET() {
   try {

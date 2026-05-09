@@ -3,9 +3,7 @@ import { parseMediumFeed, MEDIUM_FEED_URL, type RSSItem, type MediumPost } from 
 
 export async function getPosts(): Promise<MediumPost[]> {
   try {
-    const res = await fetch(MEDIUM_FEED_URL, {
-      next: { revalidate: 3600 },
-    });
+    const res = await fetch(MEDIUM_FEED_URL, { next: { revalidate: 600 } });
     const xml = await res.text();
     const parser = new Parser({ customFields: { item: ["content:encoded"] } });
     const feed = await parser.parseString(xml);
