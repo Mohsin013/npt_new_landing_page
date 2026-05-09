@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getPosts } from "@/lib/get-posts";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 600;
 
 export async function GET() {
   try {

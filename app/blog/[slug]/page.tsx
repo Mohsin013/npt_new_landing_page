@@ -4,7 +4,7 @@ import { getPostBySlug } from "@/lib/get-posts";
 import { StructuredData } from "@/components/StructuredData";
 import BlogPostContent from "./BlogPostContent";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 600;
 
 export async function generateMetadata({
   params,
