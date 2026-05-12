@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import Parser from "rss-parser";
 import { parseMediumFeed, MEDIUM_FEED_URL, type RSSItem } from "@/lib/blog-data";
-import { ensureSchema, getDb } from "@/lib/db-schema";
 
 const parser = new Parser({ customFields: { item: ["content:encoded"] } });
 
@@ -11,8 +10,35 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
+  if (!process.env.POSTGRES_URL) {
+    return NextResponse.json(
+      { error: "POSTGRES_URL environment variable is not set" },
+      { status: 500 }
+    );
+  }
+
   try {
-    await ensureSchema();
+    const { neon } = await import("@neondatabase/serverless");
+    const sql = neon(process.env.POSTGRES_URL);
+
+    await sql`
+      CREATE TABLE IF NOT EXISTS posts (
+        id SERIAL PRIMARY KEY,
+        slug VARCHAR(80) NOT NULL UNIQUE,
+        title TEXT NOT NULL,
+        link TEXT NOT NULL,
+        date TIMESTAMPTZ NOT NULL,
+        categories JSONB NOT NULL DEFAULT '[]'::jsonb,
+        thumbnail TEXT NOT NULL DEFAULT '',
+        excerpt TEXT NOT NULL DEFAULT '',
+        author TEXT NOT NULL DEFAULT 'NorthPeak Technologies',
+        read_time VARCHAR(20) NOT NULL DEFAULT '',
+        content TEXT NOT NULL DEFAULT '',
+        created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+      )
+    `;
+    await sql`CREATE INDEX IF NOT EXISTS idx_posts_slug ON posts(slug)`;
+    await sql`CREATE INDEX IF NOT EXISTS idx_posts_date ON posts(date DESC)`;
 
     const feed = await parser.parseURL(MEDIUM_FEED_URL);
     const posts = parseMediumFeed(feed.items as unknown as RSSItem[]);
@@ -21,7 +47,6 @@ export async function GET(request: Request) {
       return NextResponse.json({ message: "No posts in feed", inserted: 0 });
     }
 
-    const sql = getDb();
     const existing = await sql`SELECT slug FROM posts`;
     const existingSlugs = new Set(existing.map((r) => r.slug));
 
@@ -57,7 +82,7 @@ export async function GET(request: Request) {
   } catch (error) {
     console.error("Cron sync-posts error:", error);
     return NextResponse.json(
-      { error: "Internal server error" },
+      { error: String(error) },
       { status: 500 }
     );
   }
