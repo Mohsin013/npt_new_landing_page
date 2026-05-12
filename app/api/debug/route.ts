@@ -25,5 +25,19 @@ export async function GET() {
     results.rss_parser = `error: ${String(e)}`;
   }
 
+  try {
+    await import("@/lib/blog-data");
+    results.blog_data = "loaded ok";
+  } catch (e) {
+    results.blog_data = `error: ${String(e)}`;
+  }
+
+  try {
+    await import("isomorphic-dompurify");
+    results.dompurify = "loaded ok";
+  } catch (e) {
+    results.dompurify = `error: ${String(e)}`;
+  }
+
   return NextResponse.json(results);
 }
