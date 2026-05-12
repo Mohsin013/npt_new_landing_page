@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getPostBySlug } from "@/lib/get-posts";
+import { getPosts, getPostBySlug } from "@/lib/get-posts";
 import { StructuredData } from "@/components/StructuredData";
 import BlogPostContent from "./BlogPostContent";
 
 export const revalidate = 600;
+
+export async function generateStaticParams() {
+  const posts = await getPosts();
+  return posts.map((post) => ({ slug: post.slug }));
+}
 
 export async function generateMetadata({
   params,
