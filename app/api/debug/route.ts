@@ -18,25 +18,10 @@ export async function GET() {
   }
 
   try {
-    const Parser = (await import("rss-parser")).default;
-    const parser = new Parser();
-    results.rss_parser = "loaded ok";
-  } catch (e) {
-    results.rss_parser = `error: ${String(e)}`;
-  }
-
-  try {
     await import("@/lib/blog-data");
     results.blog_data = "loaded ok";
   } catch (e) {
     results.blog_data = `error: ${String(e)}`;
-  }
-
-  try {
-    await import("isomorphic-dompurify");
-    results.dompurify = "loaded ok";
-  } catch (e) {
-    results.dompurify = `error: ${String(e)}`;
   }
 
   return NextResponse.json(results);

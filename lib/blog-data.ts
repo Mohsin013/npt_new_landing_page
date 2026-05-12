@@ -1,4 +1,4 @@
-import DOMPurify from "isomorphic-dompurify";
+import sanitize from "sanitize-html";
 
 export interface MediumPost {
   slug: string;
@@ -54,19 +54,18 @@ function slugify(title: string): string {
 
 function sanitizeContent(html: string): string {
   const stripped = html.replace(/<figure>[\s\S]*?<\/figure>/, "");
-  const clean = DOMPurify.sanitize(stripped, {
-    ALLOWED_TAGS: [
+  const clean = sanitize(stripped, {
+    allowedTags: [
       "p", "br", "strong", "em", "b", "i", "u", "s",
       "h1", "h2", "h3", "h4", "h5", "h6",
       "ul", "ol", "li", "blockquote", "pre", "code",
       "a", "img", "figure", "figcaption", "hr", "span", "div",
     ],
-    ALLOWED_ATTR: [
-      "href", "src", "alt", "title", "width", "height",
-      "target", "rel", "class", "id",
-      "loading", "decoding",
-    ],
-    ADD_ATTR: ["target"],
+    allowedAttributes: {
+      a: ["href", "target", "rel", "class", "id"],
+      img: ["src", "alt", "title", "width", "height", "loading", "decoding"],
+      "*": ["class", "id"],
+    },
   });
   return clean
     .replace(/<img([^>]*)>/g, (_, attrs) => {
