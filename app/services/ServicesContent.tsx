@@ -167,7 +167,7 @@ export default function ServicesContent() {
             <span className="gradient-text">Ship & Scale</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Six core services. Each designed to solve a specific problem and deliver
+            Eight core services. Each designed to solve a specific problem and deliver
             a measurable outcome. No fluff, no scope creep.
           </p>
         </motion.div>
