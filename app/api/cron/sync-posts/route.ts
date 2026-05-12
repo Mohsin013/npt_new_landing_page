@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import Parser from "rss-parser";
 import { parseMediumFeed, MEDIUM_FEED_URL, type RSSItem } from "@/lib/blog-data";
 
@@ -73,11 +74,20 @@ export async function GET(request: Request) {
       inserted++;
     }
 
+    if (inserted > 0) {
+      revalidatePath("/blog");
+      revalidatePath("/api/blog");
+      for (const post of newPosts) {
+        revalidatePath(`/blog/${post.slug}`);
+      }
+    }
+
     return NextResponse.json({
       message: "Sync complete",
       total_in_feed: posts.length,
       already_existed: existingSlugs.size,
       inserted,
+      revalidated: inserted > 0,
     });
   } catch (error) {
     console.error("Cron sync-posts error:", error);
