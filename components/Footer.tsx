@@ -11,7 +11,7 @@ const companyLinks = [
 
 const resourceLinks = [
   { href: "/blog", label: "Blog" },
-  { href: "/#work", label: "Case Studies" },
+  { href: "/case-studies", label: "Case Studies" },
 ];
 
 export default function Footer() {
