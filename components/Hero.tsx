@@ -74,7 +74,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       <AnimatePresence>
         {showFluid && isDesktop && (
           <motion.div

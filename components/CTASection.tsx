@@ -10,7 +10,7 @@ import FloatingParticles from "@/components/FloatingParticles";
 
 export default function CTASection() {
   return (
-    <section className="relative py-20 md:py-28 lg:py-32 overflow-hidden">
+    <section id="cta" className="relative py-20 md:py-28 lg:py-32 overflow-hidden">
       <Lazy3DScene scene="cta" />
       <FloatingParticles count={12} />
       <div className="absolute inset-0 bg-background/80" />

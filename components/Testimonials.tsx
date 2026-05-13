@@ -43,6 +43,7 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <SectionWrapper
+      id="testimonials"
       title="What Our Clients Say"
       subtitle="Don't take our word for it. Here's what the founders and leaders we've worked with have to say."
     >

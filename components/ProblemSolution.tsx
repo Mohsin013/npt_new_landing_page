@@ -36,6 +36,7 @@ const problems = [
 export default function ProblemSolution() {
   return (
     <SectionWrapper
+      id="why"
       badge="The Problem"
       title="Problems We Solve for Startups & Businesses"
       subtitle="These are the exact problems our clients had before they found us."

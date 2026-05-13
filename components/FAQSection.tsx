@@ -13,6 +13,7 @@ import { faqs } from "@/components/StructuredData";
 export default function FAQSection() {
   return (
     <SectionWrapper
+      id="faqs"
       badge="FAQ"
       title="Common Questions"
       subtitle="Straight answers to the questions we hear most."

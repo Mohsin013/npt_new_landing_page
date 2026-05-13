@@ -40,6 +40,7 @@ const differentiators = [
 export default function WhyChooseUs() {
   return (
     <SectionWrapper
+      id="why-us"
       badge="Why NorthPeak"
       title="Why Teams Choose NorthPeak"
       subtitle="We've worked with 50+ founders and businesses. Here's why they chose us over agencies, freelancers, and in-house teams."

@@ -44,7 +44,7 @@ export default function TechMarquee() {
   const doubled = [...technologies, ...technologies];
 
   return (
-    <section className="border-y border-border/50">
+    <section id="tech-stack" className="border-y border-border/50">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

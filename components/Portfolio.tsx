@@ -32,10 +32,6 @@ const projects = [
     ],
     tech: ["React 19", "TypeScript", "Node.js", "MongoDB", "Redis"],
     outcome: "Personalized learning for special-needs children",
-    gradient: "from-purple-500 to-blue-500",
-    glowColor: "shadow-purple-500/20",
-    color: "text-purple-400",
-    border: "border-purple-500/10",
     featured: true,
   },
   {
@@ -51,10 +47,6 @@ const projects = [
     ],
     tech: ["React Native", "Expo", "Node.js", "TypeScript", "MongoDB"],
     outcome: "40% faster API response times",
-    gradient: "from-blue-500 to-cyan-500",
-    glowColor: "shadow-blue-500/20",
-    color: "text-blue-400",
-    border: "border-blue-500/10",
     featured: true,
   },
   {
@@ -70,10 +62,6 @@ const projects = [
     ],
     tech: ["React", "React Native", "Node.js", "AI/ML", "WebRTC"],
     outcome: "80% less manual review time",
-    gradient: "from-cyan-500 to-emerald-500",
-    glowColor: "shadow-cyan-500/20",
-    color: "text-cyan-400",
-    border: "border-cyan-500/10",
   },
   {
     title: "Veda",
@@ -88,10 +76,6 @@ const projects = [
     ],
     tech: ["Next.js", "TypeScript", "OpenAI", "Node.js", "PostgreSQL"],
     outcome: "80% less manual hiring work",
-    gradient: "from-emerald-500 to-yellow-500",
-    glowColor: "shadow-emerald-500/20",
-    color: "text-emerald-400",
-    border: "border-emerald-500/10",
   },
   {
     title: "Insta Insights",
@@ -106,10 +90,6 @@ const projects = [
     ],
     tech: ["Next.js", "GPT-4", "AWS", "BullMQ", "Redis"],
     outcome: "Deep engagement insights for creators",
-    gradient: "from-yellow-500 to-orange-500",
-    glowColor: "shadow-yellow-500/20",
-    color: "text-yellow-400",
-    border: "border-yellow-500/10",
   },
   {
     title: "Smart LMS",
@@ -124,10 +104,6 @@ const projects = [
     ],
     tech: ["React", "Node.js", "AWS", "Redis", "Firebase"],
     outcome: "12x scale, zero downtime",
-    gradient: "from-orange-500 to-purple-500",
-    glowColor: "shadow-orange-500/20",
-    color: "text-orange-400",
-    border: "border-orange-500/10",
   },
   {
     title: "AI Counsellor",
@@ -142,10 +118,6 @@ const projects = [
     ],
     tech: ["React", "TypeScript", "Bun", "Elysia.js", "GPT-4", "Pinecone"],
     outcome: "70% reduction in human counsellor workload",
-    gradient: "from-pink-500 to-rose-500",
-    glowColor: "shadow-pink-500/20",
-    color: "text-pink-400",
-    border: "border-pink-500/10",
   },
   {
     title: "Blended Learning",
@@ -160,10 +132,6 @@ const projects = [
     ],
     tech: ["React", "Node.js", "OpenAI API", "SADTalker", "RVC", "AWS"],
     outcome: "80% less dependency on human instructors",
-    gradient: "from-rose-500 to-violet-500",
-    glowColor: "shadow-rose-500/20",
-    color: "text-rose-400",
-    border: "border-rose-500/10",
   },
 ];
 
@@ -176,43 +144,27 @@ function ProjectCard({
 }) {
   return (
     <TiltCard tiltAmount={featured ? 3 : 5} className="h-full">
-      <div
-        className={`group relative h-full rounded-2xl border ${project.border} bg-card overflow-hidden transition-all duration-500 hover:border-transparent`}
-      >
-        <div
-          className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r ${project.gradient} blur-xl -z-10 scale-[1.02]`}
-        />
-        <div
-          className={`absolute inset-[1px] rounded-2xl bg-card z-0 transition-all duration-500`}
-        />
+      <div className="group relative h-full rounded-2xl border border-border bg-card overflow-hidden transition-all duration-300 hover:border-primary/30">
+        <div className="h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
-        <div
-          className={`h-1 bg-gradient-to-r ${project.gradient} relative z-10 transition-all duration-500 group-hover:h-1.5`}
-        />
-
-        <div className="relative z-10 p-6 md:p-7 space-y-5">
+        <div className="p-6 md:p-7 space-y-5">
           <div
             className={`flex ${featured ? "flex-row items-start justify-between" : "flex-col"} gap-4`}
           >
             <div className="flex items-center gap-3">
-              <div
-                className={`w-11 h-11 rounded-xl bg-gradient-to-br ${project.gradient} bg-opacity-10 flex items-center justify-center transition-transform duration-300 group-hover:scale-110`}
-                style={{ background: `linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--secondary)) 100%)` }}
-              >
-                <project.icon className={`h-5 w-5 ${project.color}`} />
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                <project.icon className="h-5 w-5 text-primary" />
               </div>
               <div>
-                <h3 className="text-lg font-bold group-hover:text-white transition-colors">
-                  {project.title}
-                </h3>
-                <p className={`text-sm ${project.color}`}>
+                <h3 className="text-lg font-bold">{project.title}</h3>
+                <p className="text-sm text-muted-foreground">
                   {project.tagline}
                 </p>
               </div>
             </div>
 
-            <div className="text-right shrink-0">
-              <div className={`text-2xl font-bold ${project.color}`}>
+            <div className={`${featured ? "text-right" : ""} shrink-0`}>
+              <div className="text-2xl font-bold text-foreground">
                 <AnimatedCounter value={project.stat} />
               </div>
               <p className="text-[11px] text-muted-foreground uppercase tracking-wider">
@@ -224,9 +176,7 @@ function ProjectCard({
           <ul className="space-y-2.5">
             {project.highlights.map((h) => (
               <li key={h} className="flex items-start gap-2.5">
-                <CheckCircle2
-                  className={`h-4 w-4 mt-0.5 shrink-0 ${project.color} opacity-70`}
-                />
+                <CheckCircle2 className="h-4 w-4 mt-0.5 shrink-0 text-primary/60" />
                 <span className="text-sm text-muted-foreground leading-relaxed">
                   {h}
                 </span>
@@ -238,7 +188,7 @@ function ProjectCard({
             {project.tech.map((t) => (
               <span
                 key={t}
-                className="text-[11px] px-2.5 py-1 rounded-md bg-secondary/60 text-secondary-foreground transition-colors duration-300 group-hover:bg-secondary"
+                className="text-[11px] px-2.5 py-1 rounded-md bg-secondary/60 text-secondary-foreground"
               >
                 {t}
               </span>
@@ -250,9 +200,7 @@ function ProjectCard({
               <TrendingUp className="h-4 w-4 shrink-0" />
               {project.outcome}
             </div>
-            <ArrowUpRight
-              className={`h-4 w-4 ${project.color} opacity-0 -translate-x-2 group-hover:opacity-70 group-hover:translate-x-0 transition-all duration-300`}
-            />
+            <ArrowUpRight className="h-4 w-4 text-muted-foreground opacity-0 -translate-x-2 group-hover:opacity-60 group-hover:translate-x-0 transition-all duration-300" />
           </div>
         </div>
       </div>
@@ -270,11 +218,8 @@ export default function Portfolio() {
       badge="Our Work"
       title="Real Projects. Real Impact."
       subtitle="Products we've architected, built, and shipped — used by thousands in production today."
-      className="relative"
     >
-      <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none" />
-
-      <div className="relative space-y-6">
+      <div className="space-y-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {featured.map((project) => (
             <motion.div key={project.title} variants={itemVariants}>
