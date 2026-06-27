@@ -5,15 +5,16 @@ import { motion } from "framer-motion";
 import { ArrowRight, Phone, MessageCircle, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MagneticButton } from "@/components/ui/magnetic-button";
-import Lazy3DScene from "@/components/three/Lazy3DScene";
-import FloatingParticles from "@/components/FloatingParticles";
 
 export default function CTASection() {
   return (
     <section id="cta" className="relative py-20 md:py-28 lg:py-32 overflow-hidden">
-      <Lazy3DScene scene="cta" />
-      <FloatingParticles count={12} />
-      <div className="absolute inset-0 bg-background/80" />
+      {/* Lightweight gradient orbs */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] rounded-full bg-primary/15 blur-[100px] animate-hero-orb-2" />
+        <div className="absolute bottom-1/3 left-1/4 w-[350px] h-[350px] rounded-full bg-accent/10 blur-[80px] animate-hero-orb-1" />
+      </div>
+      <div className="absolute inset-0 bg-background/60" />
 
       <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
         <motion.div
@@ -31,10 +32,17 @@ export default function CTASection() {
             Book a free 30-minute consultation. We&apos;ll review your idea, identify
             the fastest path to launch, and give you a clear roadmap — no strings attached.
           </p>
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-1.5 text-sm text-primary">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
+            </span>
+            We respond within 2 hours
+          </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <MagneticButton>
-              <Button asChild size="lg" className="text-base">
+              <Button asChild size="lg" className="text-base glow hover:shadow-[0_0_30px_hsl(263_70%_58%/0.3),0_0_80px_hsl(263_70%_58%/0.15)] transition-shadow duration-300">
                 <Link href="/contact">
                   Start Your Project
                   <ArrowRight className="ml-2 h-4 w-4" />

@@ -10,6 +10,7 @@ import {
   localBusinessSchema,
 } from "@/components/StructuredData";
 import CursorGlow from "@/components/CursorGlow";
+import ScrollProgress from "@/components/ScrollProgress";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import "./globals.css";
 
@@ -103,6 +104,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col antialiased">
         <Providers>
           <CursorGlow />
+          <ScrollProgress />
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />

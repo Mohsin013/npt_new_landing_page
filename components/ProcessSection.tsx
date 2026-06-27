@@ -73,12 +73,21 @@ export default function ProcessSection() {
       title="From Idea to Launch in 4 Weeks"
       subtitle="A battle-tested process designed for speed without sacrificing quality. Every step is transparent — you'll never wonder what's happening."
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+      <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="hidden lg:block absolute top-1/2 left-0 right-0 -translate-y-1/2 z-0 px-16">
+          <div className="h-px bg-gradient-to-r from-purple-400/30 via-blue-400/30 via-cyan-400/30 to-emerald-400/30" />
+          <div className="h-px bg-gradient-to-r from-purple-400/10 via-blue-400/10 via-cyan-400/10 to-emerald-400/10 blur-sm mt-px" />
+        </div>
         {phases.map((phase, i) => (
-          <motion.div key={phase.week} variants={itemVariants}>
+          <motion.div key={phase.week} variants={itemVariants} className="relative z-10">
             <TiltCard tiltAmount={5} className="h-full">
               <div className={`relative h-full rounded-xl border ${phase.border} bg-card p-6 shadow-lg ${phase.glow}`}>
-                <div className={`inline-flex items-center gap-2 ${phase.bg} ${phase.color} rounded-full px-3 py-1 text-xs font-semibold mb-4`}>
+                <div className="absolute -top-3 left-6">
+                  <div className={`w-6 h-6 rounded-full ${phase.bg} border-2 ${phase.border} flex items-center justify-center`}>
+                    <span className={`text-[10px] font-bold ${phase.color}`}>{i + 1}</span>
+                  </div>
+                </div>
+                <div className={`inline-flex items-center gap-2 ${phase.bg} ${phase.color} rounded-full px-3 py-1 text-xs font-semibold mb-4 mt-2`}>
                   <phase.icon className="h-3.5 w-3.5" />
                   {phase.week}
                 </div>

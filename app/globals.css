@@ -112,6 +112,73 @@ body {
   z-index: 0;
 }
 
+@keyframes hero-orb-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, -50px) scale(1.05); }
+  50% { transform: translate(-20px, 20px) scale(0.95); }
+  75% { transform: translate(40px, 30px) scale(1.02); }
+}
+
+@keyframes hero-orb-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-40px, 30px) scale(0.97); }
+  50% { transform: translate(30px, -40px) scale(1.04); }
+  75% { transform: translate(-20px, -20px) scale(0.98); }
+}
+
+@keyframes hero-orb-3 {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  33% { transform: translate(-48%, -52%) scale(1.03); }
+  66% { transform: translate(-52%, -48%) scale(0.97); }
+}
+
+.animate-hero-orb-1 {
+  animation: hero-orb-1 20s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-hero-orb-2 {
+  animation: hero-orb-2 25s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-hero-orb-3 {
+  animation: hero-orb-3 30s ease-in-out infinite;
+  will-change: transform;
+}
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes gradient-rotate {
+  to { --gradient-angle: 360deg; }
+}
+
+.animate-gradient-rotate {
+  animation: gradient-rotate 3s linear infinite;
+}
+
+@keyframes testimonial-scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes testimonial-scroll-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-testimonial-scroll-left {
+  animation: testimonial-scroll-left 40s linear infinite;
+}
+
+.animate-testimonial-scroll-right {
+  animation: testimonial-scroll-right 45s linear infinite;
+}
+
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -157,6 +224,10 @@ body {
 
 .animate-marquee {
   animation: marquee 30s linear infinite;
+}
+
+.animate-marquee-slow {
+  animation: marquee 45s linear infinite;
 }
 
 .cursor-blink {
