@@ -33,14 +33,14 @@ const caseStudies = [
     heroMetric: "1000+",
     heroMetricLabel: "modules/day",
     challenge:
-      "Special-needs children require personalized learning paths that adapt in real time — something off-the-shelf LMS platforms can't deliver.",
+      "Neurodivergent children (autism & ADHD) require personalized learning paths that adapt in real time — something off-the-shelf LMS platforms can't deliver.",
     solution:
       "Multi-AI system integrating Claude, Gemini, and OpenAI behind a unified orchestration layer. Adaptive difficulty engine across 4 proficiency levels. BullMQ-powered job queues handle 1,000+ module tasks daily.",
     results: [
       "Multi-AI architecture with seamless provider failover",
       "Adaptive difficulty engine across 4 proficiency levels",
       "1,000+ modules processed daily via BullMQ pipelines",
-      "Personalized learning paths for special-needs children",
+      "Personalized learning paths for neurodivergent children",
     ],
     tech: ["React 19", "TypeScript", "Node.js", "MongoDB", "Redis"],
     gradient: "from-purple-500 to-blue-500",
@@ -161,7 +161,7 @@ const caseStudies = [
     icon: HeartHandshake,
     title: "AI Counsellor",
     tagline: "AI-Powered Counselling System",
-    industry: "HealthTech",
+    industry: "EdTech",
     heroMetric: "77%",
     heroMetricLabel: "cost reduction",
     challenge:
