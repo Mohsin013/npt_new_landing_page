@@ -60,7 +60,7 @@ export default function SocialProofToast() {
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: -100, opacity: 0 }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="fixed bottom-6 left-6 z-40 max-w-xs"
+          className="fixed bottom-6 left-6 z-40 max-w-xs hidden sm:block"
         >
           <div
             className="flex items-start gap-3 rounded-xl border border-border bg-card p-4 shadow-lg cursor-pointer"

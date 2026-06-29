@@ -10,9 +10,9 @@ export default function CTASection() {
   return (
     <section id="cta" className="relative py-20 md:py-28 lg:py-32 overflow-hidden">
       {/* Lightweight gradient orbs */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] rounded-full bg-primary/15 blur-[100px] animate-hero-orb-2" />
-        <div className="absolute bottom-1/3 left-1/4 w-[350px] h-[350px] rounded-full bg-accent/10 blur-[80px] animate-hero-orb-1" />
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute top-1/3 right-1/4 w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] rounded-full bg-primary/15 blur-[80px] sm:blur-[100px] animate-hero-orb-2" />
+        <div className="absolute bottom-1/3 left-1/4 w-[200px] h-[200px] sm:w-[350px] sm:h-[350px] rounded-full bg-accent/10 blur-[60px] sm:blur-[80px] animate-hero-orb-1" />
       </div>
       <div className="absolute inset-0 bg-background/60" />
 

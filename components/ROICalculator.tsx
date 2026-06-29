@@ -35,7 +35,7 @@ export default function ROICalculator() {
     >
       <motion.div
         variants={itemVariants}
-        className="mx-auto max-w-2xl rounded-2xl border border-border bg-card p-8"
+        className="mx-auto max-w-2xl rounded-2xl border border-border bg-card p-5 sm:p-8"
       >
         <div className="space-y-8">
           <div className="space-y-6">
@@ -107,10 +107,10 @@ export default function ROICalculator() {
           </div>
 
           <div className="text-center pt-2">
-            <Button asChild size="lg">
+            <Button asChild size="lg" className="w-full sm:w-auto">
               <Link href="/contact">
-                Stop Burning Money — Start Building
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <span className="truncate">Stop Burning Money — Start Building</span>
+                <ArrowRight className="ml-2 h-4 w-4 shrink-0" />
               </Link>
             </Button>
             <p className="text-xs text-muted-foreground mt-3">
